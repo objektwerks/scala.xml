@@ -1,6 +1,12 @@
 package xml
 
-import scala.xml.Elem
+import java.io.StringReader
+
+import javax.xml.transform.stream.StreamSource
+import javax.xml.validation.Schema
+
+import scala.util.Try
+import scala.xml.{Elem, XML}
 
 case class Name(value: String)
 case class Task(value: String)
@@ -8,6 +14,12 @@ case class Todo(name: Name, task: Task)
 case class Todos(values: Seq[Todo])
 
 object Todos {
+  def loadXml(resource: String): Elem = XML.load(getClass.getResource(resource))
+
+  def validateXml(schema: Schema, todos: Elem): Try[Unit] = Try {
+    schema.newValidator.validate(new StreamSource(new StringReader(todos.toString)))
+  }
+
   def fromXml(todos: Elem): Todos = Todos {
     (todos \\ "todo").map { todo =>
       val name = Name( (todo \\ "name").text )
@@ -16,7 +28,11 @@ object Todos {
     }
   }
 
-  def toXml(todos: Todos): Elem = <todos> { todos.values.map { todo =>
+  def toXml(todos: Todos): Elem = <todos
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="/todo.xsd"
+    >
+    { todos.values.map { todo =>
         <todo>
           <name>{todo.name.value}</name>
           <task>{todo.task.value}</task>

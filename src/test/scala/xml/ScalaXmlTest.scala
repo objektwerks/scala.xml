@@ -1,26 +1,23 @@
 package xml
 
-import java.io.StringReader
-
 import javax.xml.XMLConstants
-import javax.xml.transform.stream.StreamSource
 import javax.xml.validation.SchemaFactory
 import org.scalatest.{FunSuite, Matchers}
 
-import scala.xml.XML
-
 class ScalaXmlTest extends FunSuite with Matchers {
+  import Todos._
+
   val schema = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI).newSchema(getClass.getResource("/todo.xsd"))
-  val xml = XML.load(getClass.getResource("/todo.xml"))
+  val xml = loadXml("/todo.xml")
 
   test("validate") {
-    val validator = schema.newValidator()
-    validator.validate(new StreamSource(new StringReader(xml.toString)))
+    validateXml(schema, xml)
   }
 
   test("binding") {
-    val todos = Todos.fromXml(xml)
+    val todos = fromXml(xml)
+    todos shouldEqual fromXml(xml)
     println(s"Scala: $todos")
-    println(s"Xml: ${Todos.toXml(todos)}")
+    println(s"Xml: ${toXml(todos)}")
   }
 }
