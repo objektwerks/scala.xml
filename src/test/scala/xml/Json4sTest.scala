@@ -2,7 +2,7 @@ package xml
 
 import org.scalatest.{FunSuite, Matchers}
 
-class CirceTest extends FunSuite with Matchers with Logging {
+class Json4sTest extends FunSuite with Matchers {
   test("xml") {
   }
 }
