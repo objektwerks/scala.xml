@@ -18,6 +18,6 @@ class ScalaXmlTest extends FunSuite with Matchers {
     val todos = fromXml(xml)
     todos shouldEqual fromXml(xml)
     println(todos)
-    println(format(toXml(todos)))
+    println(formatXml(toXml(todos)))
   }
 }
