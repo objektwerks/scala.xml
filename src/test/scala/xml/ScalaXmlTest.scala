@@ -16,8 +16,12 @@ class ScalaXmlTest extends FunSuite with Matchers {
 
   test("binding") {
     val todos = fromXml(xml)
+    val todosAsXml = toXml(todos)
+
     todos shouldEqual fromXml(xml)
+    todosAsXml.nonEmpty shouldBe true
+
     println(todos)
-    println(formatXml(toXml(todos)))
+    println(formatXml(todosAsXml))
   }
 }
