@@ -28,16 +28,11 @@ object Todos {
     }
   }
 
-  def toXml(todos: Todos): Elem = <todos
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="/todo.xsd"
-    >
-    { todos.values.map { todo =>
-        <todo>
-          <name>{todo.name.value}</name>
-          <task>{todo.task.value}</task>
-        </todo>
-      }
-    }
+  def toXml(todos: Todos): Elem =
+    <todos> { todos.values.map { todo =>
+      <todo>
+        <name>{todo.name.value}</name>
+        <task>{todo.task.value}</task>
+      </todo> } }
     </todos>
 }
