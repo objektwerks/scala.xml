@@ -20,5 +20,7 @@ class ScalaXmlTest extends FunSuite with Matchers {
 
     println(todos)
     println(formatXml(todosAsXml))
+
+    saveXml("./target/todos.xml", xml)
   }
 }
