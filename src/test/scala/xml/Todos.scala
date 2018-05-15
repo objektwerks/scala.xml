@@ -6,7 +6,7 @@ import javax.xml.transform.stream.StreamSource
 import javax.xml.validation.Schema
 
 import scala.util.Try
-import scala.xml.{Elem, XML}
+import scala.xml.{Elem, PrettyPrinter, XML}
 
 case class Name(value: String)
 case class Task(value: String)
@@ -35,4 +35,6 @@ object Todos {
         <task>{todo.task.value}</task>
       </todo> } }
     </todos>
+
+  def format(todos: Elem): String = new PrettyPrinter(80, 2).format(todos)
 }
