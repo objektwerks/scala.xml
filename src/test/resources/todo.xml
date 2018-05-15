@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<todos
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="/todo.xsd"
+>
+    <todo>
+        <name>fred</name>
+        <task>mow yard</task>
+    </todo>
+    <todo>
+        <name>barney</name>
+        <task>wash car</task>
+    </todo>
+</todos>
