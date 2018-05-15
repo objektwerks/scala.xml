@@ -16,6 +16,8 @@ case class Todos(values: Seq[Todo])
 object Todos {
   def loadXml(resource: String): Elem = XML.load(getClass.getResource(resource))
 
+  def saveXml(fileName: String, todos: Elem): Try[Unit] = Try { XML.save(fileName, todos) }
+
   def validateXml(schema: Schema, todos: Elem): Try[Unit] = Try {
     schema.newValidator.validate(new StreamSource(new StringReader(todos.toString)))
   }
