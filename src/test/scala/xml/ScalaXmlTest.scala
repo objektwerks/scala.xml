@@ -11,7 +11,7 @@ class ScalaXmlTest extends FunSuite with Matchers {
   val xml = loadXml("/todo.xml")
 
   test("validate") {
-    validateXml(schema, xml)
+    validateXml(schema, xml).isSuccess shouldBe true
   }
 
   test("binding") {

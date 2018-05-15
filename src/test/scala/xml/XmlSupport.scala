@@ -9,9 +9,9 @@ import scala.util.Try
 import scala.xml.{Elem, PrettyPrinter, XML}
 
 trait XmlSupport {
-  def loadXml(resource: String): Elem = XML.load(getClass.getResource(resource))
+  def loadXml(classpathResource: String): Elem = XML.load(getClass.getResource(classpathResource))
 
-  def saveXml(fileName: String, elem: Elem): Try[Unit] = Try { XML.save(fileName, elem) }
+  def saveXml(fileName: String, elem: Elem): Unit = XML.save(fileName, elem)
 
   def validateXml(schema: Schema, elem: Elem): Try[Unit] = Try {
     schema.newValidator.validate(new StreamSource(new StringReader(elem.toString)))
