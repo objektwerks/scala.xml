@@ -5,7 +5,6 @@ scalaVersion := "2.12.6"
 libraryDependencies ++= {
   Seq(
     "org.scala-lang.modules" %% "scala-xml" % "1.1.0",
-    "org.json4s" %% "json4s-core" % "3.5.3",
     "ch.qos.logback" % "logback-classic" % "1.2.3",
     "org.scalatest" % "scalatest_2.12" % "3.0.5" % "test"
   )
