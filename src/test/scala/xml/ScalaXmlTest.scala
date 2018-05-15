@@ -17,4 +17,10 @@ class ScalaXmlTest extends FunSuite with Matchers {
     val validator = schema.newValidator()
     validator.validate(new StreamSource(new StringReader(xml.toString)))
   }
+
+  test("binding") {
+    val todos = Todos.fromXml(xml)
+    println(s"Scala: $todos")
+    println(s"Xml: ${Todos.toXml(todos)}")
+  }
 }
