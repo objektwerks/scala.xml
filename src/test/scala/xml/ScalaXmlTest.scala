@@ -16,6 +16,7 @@ class ScalaXmlTest extends FunSuite with Matchers {
 
     todos shouldEqual fromXml(xml)
     validateXml(schema, todosAsXml).isSuccess shouldBe true
+    formatXml(xml) shouldEqual formatXml(todosAsXml)
 
     println(todos)
     println(formatXml(todosAsXml))
