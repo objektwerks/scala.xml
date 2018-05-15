@@ -9,12 +9,11 @@ import org.scalatest.{FunSuite, Matchers}
 import scala.xml.XML
 
 class ScalaXmlTest extends FunSuite with Matchers {
+  val schema = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema").newSchema(getClass.getResource("/todo.xsd"))
+  val xml = XML.load(getClass.getResource("/todo.xml"))
+
   test("validate") {
-    val factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema")
-    val schema = factory.newSchema(getClass.getResource("/todo.xsd"))
     val validator = schema.newValidator()
-    val xml = XML.load(getClass.getResource("/todo.xml")).toString
-    println(xml)
-    validator.validate(new StreamSource(new StringReader(xml)))
+    validator.validate(new StreamSource(new StringReader(xml.toString)))
   }
 }
