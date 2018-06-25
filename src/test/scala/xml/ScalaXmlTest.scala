@@ -17,11 +17,11 @@ class ScalaXmlTest extends FunSuite with Matchers {
       isXmlValid(schema, xml) shouldBe true
       xml shouldEqual validXml
 
-      val todos = fromXml(xml)
-      val todosAsXml = toXml(todos)
+      val todos = xml.toTodos
+      val todosAsXml = todos.toXml
 
-      todos shouldEqual fromXml(todosAsXml)
-      todosAsXml shouldEqual toXml(todos)
+      todos shouldEqual todosAsXml.toTodos
+      todosAsXml shouldEqual todos.toXml
 
       logger.info(todos.toString)
       logger.info(formatXml(todosAsXml))
