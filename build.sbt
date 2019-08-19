@@ -1,7 +1,7 @@
 name := "scala.xml"
 organization := "objektwerks"
 version := "0.1-SNAPSHOT"
-scalaVersion := "2.12.6"
+scalaVersion := "2.12.9"
 libraryDependencies ++= {
   Seq(
     "org.scala-lang.modules" %% "scala-xml" % "1.1.0",
@@ -24,5 +24,3 @@ scalacOptions ++= Seq(
   "-Xlint:missing-interpolator",
   "-Xlint"
 )
-fork in test := true
-javaOptions += "-server -Xss1m -Xmx2g"
