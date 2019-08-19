@@ -6,7 +6,7 @@ libraryDependencies ++= {
   Seq(
     "org.scala-lang.modules" %% "scala-xml" % "1.1.0",
     "ch.qos.logback" % "logback-classic" % "1.2.3",
-    "org.scalatest" % "scalatest_2.12" % "3.0.5" % "test"
+    "org.scalatest" %% "scalatest" % "3.0.8" % "test"
   )
 }
 scalacOptions ++= Seq(
