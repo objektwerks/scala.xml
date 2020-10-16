@@ -1,9 +1,10 @@
 package xml
 
-import org.scalatest.{FunSuite, Matchers}
 import org.slf4j.LoggerFactory
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
 
-class ScalaXmlTest extends FunSuite with Matchers {
+class ScalaXmlTest extends AnyFunSuite with Matchers {
   val logger = LoggerFactory.getLogger(getClass)
 
   test("features") {
