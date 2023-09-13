@@ -11,7 +11,7 @@ final case class Todo(name: Name, task: Task)
 final case class Todos(values: Seq[Todo])
 
 object Todos extends ScalaXmlSupport:
-  implicit final class NodeOps(val todos: Node):
+  extension (todos: Node)
     def toTodos: Todos = Todos {
       (todos \\ "todo").map { todo =>
         val name = Name((todo \\ "name").text)
@@ -20,7 +20,7 @@ object Todos extends ScalaXmlSupport:
       }
     }
 
-  implicit final class TodosOps(val todos: Todos):
+  extension (todos: Todos)
     def toXml: Node =
       <todos>
         {todos.values.map { todo =>

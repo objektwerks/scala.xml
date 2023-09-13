@@ -1,7 +1,6 @@
 package xml
 
 import java.io.StringReader
-
 import javax.xml.XMLConstants
 import javax.xml.transform.stream.StreamSource
 import javax.xml.validation.{Schema, SchemaFactory}
