@@ -9,3 +9,6 @@ libraryDependencies ++= {
     "org.scalatest" %% "scalatest" % "3.2.16" % Test
   )
 }
+scalacOptions ++= Seq(
+  "-Wunused:all"
+)
