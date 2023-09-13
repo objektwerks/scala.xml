@@ -1,6 +1,10 @@
-Xml
----
->The purpose of this project is to test Scala xml libraries.
+Scala-Xml
+---------
+>Scala-Xml feature tests using Scala 3.
+
+Build
+-----
+1. sbt clean compile
 
 Test
 ----
