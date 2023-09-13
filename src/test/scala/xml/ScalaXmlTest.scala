@@ -6,7 +6,7 @@ import org.scalatest.matchers.should.Matchers
 
 import Todos.*
 
-class ScalaXmlTest extends AnyFunSuite with Matchers:
+final class ScalaXmlTest extends AnyFunSuite with Matchers:
   val logger = LoggerFactory.getLogger(getClass)
 
   test("features") {
