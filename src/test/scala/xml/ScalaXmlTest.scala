@@ -11,8 +11,8 @@ final class ScalaXmlTest extends AnyFunSuite with Matchers:
 
   test("features") {
     for
-      schema <- loadSchema("/todos.xsd")
-      xml <- loadXml("/todos.xml")
+      schema   <- loadSchema("/todos.xsd")
+      xml      <- loadXml("/todos.xml")
       validXml <- loadValidatedXml("/todos.xsd", "/todos.xml")
     yield
       isXmlValid(schema, xml) shouldBe true
