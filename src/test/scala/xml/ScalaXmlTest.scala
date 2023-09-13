@@ -4,17 +4,17 @@ import org.slf4j.LoggerFactory
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers
 
-class ScalaXmlTest extends AnyFunSuite with Matchers {
+import Todos.*
+
+class ScalaXmlTest extends AnyFunSuite with Matchers:
   val logger = LoggerFactory.getLogger(getClass)
 
   test("features") {
-    import Todos._
-
-    for {
+    for
       schema <- loadSchema("/todos.xsd")
       xml <- loadXml("/todos.xml")
       validXml <- loadValidatedXml("/todos.xsd", "/todos.xml")
-    } yield {
+    yield
       isXmlValid(schema, xml) shouldBe true
       xml shouldEqual validXml
 
@@ -28,6 +28,4 @@ class ScalaXmlTest extends AnyFunSuite with Matchers {
       logger.info(formatXml(todosAsXml))
 
       saveXml("./target/todos.xml", todosAsXml).isSuccess shouldBe true
-    }
   }
-}
