@@ -9,7 +9,7 @@ import Todos.*
 final class ScalaXmlTest extends AnyFunSuite with Matchers:
   val logger = LoggerFactory.getLogger(getClass)
 
-  test("features") {
+  test("features"):
     for
       schema   <- loadSchema("/todos.xsd")
       xml      <- loadXml("/todos.xml")
@@ -28,4 +28,3 @@ final class ScalaXmlTest extends AnyFunSuite with Matchers:
       logger.info(formatXml(todosAsXml))
 
       saveXml("./target/todos.xml", todosAsXml).isSuccess shouldBe true
-  }
