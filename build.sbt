@@ -1,7 +1,7 @@
 name := "scala.xml"
 organization := "objektwerks"
 version := "0.1-SNAPSHOT"
-scalaVersion := "3.7.0-RC1"
+scalaVersion := "3.7.0-RC2"
 libraryDependencies ++= {
   Seq(
     "org.scala-lang.modules" %% "scala-xml" % "2.3.0",
