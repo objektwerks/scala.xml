@@ -5,7 +5,7 @@ scalaVersion := "3.8.0-RC3"
 libraryDependencies ++= {
   Seq(
     "org.scala-lang.modules" %% "scala-xml" % "2.3.0",
-    "ch.qos.logback" % "logback-classic" % "1.5.21",
+    "ch.qos.logback" % "logback-classic" % "1.5.22",
     "org.scalatest" %% "scalatest" % "3.2.19" % Test
   )
 }
